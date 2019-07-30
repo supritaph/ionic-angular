@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login-page</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <form #LoginForm="ngForm" (ngSubmit)= loginValidateFunction(LoginForm)>
+        <label for="email">Enter Email </label>
+        <input type="text" name="email" id="username" ngModel>
+        <br><br>
+        <label for="Password">Enter Password </label>
+        <input type="password" name="password" id="Password" ngModel>
+        <br><br>
+        <input type="submit" value="Submit Form">
+    </form>
+    <ion-button color="primary" expand="full" color="danger" (click)="Onregister();">Register</ion-button>
+    <!-- <ion-button onclick="loginValidateFunction(LoginForm)">login</ion-button> -->
+    <p id="message"></p>
+
+</ion-content>
+
+
