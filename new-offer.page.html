@@ -1,0 +1,117 @@
+<!-- page contains 3 sections header , body and footer  -->
+<!-- header can hold buttons, title , icons,  -->
+<!-- can make changes like color , events in header -->
+
+<ion-header>  
+  <ion-toolbar>
+    <!-- solts hold where to set button in header it many be end, start ,icon only,fixed -->
+    <ion-buttons slot="start"> 
+        <!-- <ion-buttons slot="end">  -->
+
+          <!-- default href is a "redirection", by specifying defaulthref it will always be visible -->
+      <ion-back-button defaultHref="/places/tabs/offers"></ion-back-button>
+    </ion-buttons>
+    <!-- title represents what should be their in title of header  -->
+    <ion-title>New Offer</ion-title>
+    <!-- <ion-buttons slot="start"> -->
+    <ion-buttons slot="primary">
+<!--  can make a funcntion by clicking a button so we have to add events for it by specifying (click)-->
+<!-- click=create can holds a function name and that funxtion we have to write a function in ts filel -->
+    <!-- disabled will allow to work the function  -->
+<ion-button (click)="onCreateOffer();" [disabled]="!form.valid">
+          <!-- <ion-button (click)="onCreateOffer();" [disabled]="form.valid"> -->
+        <ion-icon name="checkmark" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- form holds a set of textboxes and buttons etc -->
+  <form [formGroup]="form">
+    <!-- form control is used to get and set values -->
+    <!-- form group will validate the values in <input> <select> and it will trcak the values -->
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Title</ion-label>
+            <ion-input
+              type="text"
+              autocomplete
+              autocorrect
+              formControlName="title"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <!-- <ion-col size-sm="12" offset-sm="10"> -->
+        <ion-col size-sm="10" offset-sm="3">
+          <!-- size sm defines a screen size and  -->
+          <ion-item>
+            <ion-label position="floating">Short Description</ion-label>
+            <!-- form controls is use to get and set values -->
+            <ion-textarea rows="3" formControlName="description"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+<!-- !form.get if i remove ! then it will display a through message to enter something in description -->
+      <ion-row
+        *ngIf="
+          !form.get('description').valid && form.get('description').touched
+        "
+      >
+      <!-- if we doesnt enter anything in description it will through a message -->
+        <ion-col size-sm="6" offset-sm="3">
+          <p>Description must be between 1 and 180 characters.</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <!-- price should be a number  -->
+            <ion-label position="floating">Price</ion-label>
+            <ion-input type="number" formControlName="price"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="3" offset-sm="3">
+          <ion-item>
+            <!-- how it will show todays exact date? in form-->
+            <ion-label position="floating">Available from</ion-label>
+            <!-- datetime is tag is use to set date for min and max -->
+<!-- shows a error to set a value for date time -->
+            <!-- <ion-datetime
+              min="yyyy-mm-dd"
+              max="yyyy-mm-dd"
+              formControlName="dateFrom"
+            ></ion-datetime> -->
+            <ion-datetime
+              min="2019-01-01"
+              max="2025-12-31"
+              formControlName="dateFrom"
+            ></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <!-- same as available time -->
+        <ion-col size-sm="3">
+          <ion-item>
+            <ion-label position="floating">Available to</ion-label>
+            <ion-datetime
+              min="2019-01-02"
+              max="2025-12-31"
+              formControlName="dateTo"
+            ></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!-- <ion-row>
+        <ion-col size-sm="3" offset-sm="3">
+          <app-location-picker></app-location-picker>
+        </ion-col>
+      </ion-row> -->
+    </ion-grid>
+  </form>
+</ion-content>
