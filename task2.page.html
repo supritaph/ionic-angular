@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>task2</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    
+  <!-- <p>{{name}}</p> -->
+    
+</ion-content>
+
+<ion-footer>
+
+    <!-- <ion-button color="primary" expand="full" (click)="changeText()" >{{text}}</ion-button> -->
+    <ion-button color="primary" expand=full>{{ status ? 'TRUE' : 'FALSE' }}</ion-button>
+    <ion-button 
+         type="button" 
+         color="primary" 
+         fill="clear" 
+         expand="block"
+         (click)="onSwitchMode()">
+           Switch to {{ status ? 'FALSE' : 'TRUE' }}
+         </ion-button>         
+</ion-footer>
