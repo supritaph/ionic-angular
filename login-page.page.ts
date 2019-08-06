@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { APIs } from '../services/apis';
 import { Router } from '@angular/router';
 import { APIsModal } from '../services/apis.modal';
-// import 'rxjs/add/operator/map';
+import 'rxjs';
 
 @Component({
   selector: 'app-login-page',

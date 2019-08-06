@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController, NavParams } from '@ionic/angular';
 // import { NavParams } from '@ionic/angular';
 
 @Component({
@@ -15,8 +15,11 @@ export class Task2Page implements OnInit {
   // name: string;
   constructor(
     // private navParams: NavParams,
-    public alertController: AlertController
-    ) { }
+    public alertController: AlertController,
+    
+    ) {
+      // this.value = navParams.get('item');
+    }
 
   ngOnInit() {
 // this.name= this.navParams.data;
@@ -29,6 +32,16 @@ export class Task2Page implements OnInit {
   //     this.text = 'true'
   //   }
   // }
+
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad EmiCalPage');
+
+  // }
+
+  send(){
+    alert('ok');
+  }
+ 
   
 
  async onSwitchMode() {                       /*switches betweent signin and signup*/
