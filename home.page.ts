@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,15 +10,9 @@ export class HomePage {
 
   constructor(private router: Router) {}
 
-  
-
-  OnLogin= function () {                /*function to go for login page*/
-          this.router.navigateByUrl('/login-page');            /*router will help to navigate url to next page*/
-  };
-
-
-  Onregister= function () {                    /*function to go for login page*/
-    this.router.navigateByUrl('/signup');
-};
+  login= function()
+  {
+    this.router.navigateByUrl('/loginpage')
+  }
 
 }

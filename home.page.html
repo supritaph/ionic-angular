@@ -1,24 +1,27 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      user registration app
+      Ionic Blank
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="ion-padding">
+    The world is your oyster.
+    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  </div>
+</ion-content>
 
-    <ion-row>
+<ion-footer>
+  <ion-toolbar>
+      <ion-row>
         <ion-col>
-          <ion-button color="primary" expand="full" color="primary" (click)="OnLogin();">Login</ion-button>
+          <ion-button color="primary" expand="full" color="primary" (click)="login()">Login</ion-button>
         </ion-col>
         <ion-col>
-          <ion-button color="primary" expand="full" color="danger" (click)="Onregister();">Register</ion-button>
+          <ion-button color="primary" expand="full" color="danger" (click)="signup()">Register</ion-button>
         </ion-col>
       </ion-row>
-  
-  <!-- <button type="button"  (click)="OnLogin();">
-    
-     Add</button>     -->
-
-</ion-content>
+  </ion-toolbar>
+</ion-footer>
