@@ -1,0 +1,49 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>signup</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  
+  <form #form="ngForm" (ngSubmit)="register">
+      <ion-item>
+<ion-label position="floating">password</ion-label>
+  <ion-input ngModel type="password" name="password" class="form-control" required></ion-input>
+</ion-item>
+<ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input ngModel type="email" name="email" class="form-control"  required></ion-input>
+  </ion-item>
+  
+<ion-item>
+  <ion-label position="floating">first_name</ion-label>
+  <ion-input ngModel type="firstname" name="firstname" class="form-control" required></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">last_name</ion-label>
+  <ion-input ngModel type="lastname" name="lastname" class="form-control" required></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">contact_no</ion-label>
+  <ion-input ngModel type="contact" name="contact" class="form-control" required></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">role</ion-label>
+  <ion-input ngModel type="role" name="role" class="form-control"></ion-input>
+</ion-item>
+<ion-item>
+    <ion-label position="floating">address</ion-label>
+    <ion-input  ngModel type="address" name="address" class="form-control" required></ion-input>
+  </ion-item>
+<!-- <button ion-button full (click)="onSubmit()">register</button> -->
+<!-- <ion-button type="submit" expand="full" color="danger" (click)="onSubmit()">Register</ion-button> -->
+
+<ion-button type="submit" expand="full" color="primary" (click)="onSubmit()">Register</ion-button>
+</form>
+<p text-center>Already have a account?</p>
+
+</ion-content>
