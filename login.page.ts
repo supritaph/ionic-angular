@@ -1,19 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { APIs } from '../services/apis';
-import { Router } from '@angular/router';
-import { APIsModal } from '../services/apis.modal';
-import 'rxjs';
 
 @Component({
-  selector: 'app-login-page',
-  templateUrl: './login-page.page.html',
-  styleUrls: ['./login-page.page.scss'],
+  selector: 'app-login',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
 })
-export class LoginPagePage implements OnInit {
-  // constructor handles a router and apis page to initialise it in a body of a function
+export class LoginPage implements OnInit {
 
-  constructor(private apis:APIs, private router:Router) { }
-  myObj:APIsModal; /*myobj refers to a modal content , it holds all properties in apismodal file */
+  constructor() { }
+
+  ngOnInit() {
+  }
 
   loginValidateFunction(LoginForm){   //here LoginForm is the object type of form
     console.log(LoginForm.value) //here LoginForm.value will contain all form fields in form of json object
@@ -31,9 +28,4 @@ export class LoginPagePage implements OnInit {
   );
   }
 
-  Onregister= function () {                    /*function to go for login page*/
-    this.router.navigateByUrl('/signup');
-};
-  ngOnInit() {
-  }
 }
