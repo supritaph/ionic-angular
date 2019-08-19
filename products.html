@@ -1,0 +1,133 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" swipeGesture="true">
+            <button ion-button icon-only menuToggle>
+              <ion-icon name="menu">
+              </ion-icon>
+            </button>
+          </ion-buttons>
+        <ion-title>products</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<!-- <ion-header> -->
+    <!-- <ion-navbar> -->
+        <!-- <ion-buttons slot="start" swipeGesture="true">
+            <button ion-button icon-only menuToggle>
+              <ion-icon name="menu">
+              </ion-icon>
+            </button>
+          </ion-buttons>
+          <ion-toolbar>
+              <ion-title>product store</ion-title>
+            </ion-toolbar>       -->
+       
+    <!-- </ion-navbar> -->
+  <!-- <ion-toolbar>
+    <ion-title>product store</ion-title>
+  </ion-toolbar> -->
+<!-- </ion-header> -->
+
+<ion-content padding>
+  <!-- <ion-card *ngFor="let item of items">
+    <ion-card-header>
+      <ion-card-subtitle>{{item.id}}</ion-card-subtitle>
+      <ion-card-title>{{item.name}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  </ion-content> -->
+  <!-- <input type="text" [(ngModel)]="searchText" 
+  class="form-control" placeholder="Search By Category" />
+  <br> -->
+  <!-- <ion-card ng-repeat="item of items"> -->
+      <!-- <ion-searchbar [(ngModel)]="searchTerm" 
+      (ionInput)="setFilteredLocations($event)"></ion-searchbar> -->
+
+      <!-- <ion-searchbar [(ngModel)]="searchCountryString" (input)="searchCountry($event)" placeholder="Search"></ion-searchbar> -->
+<ion-searchbar placeholder="FilterItem" [(ngModel)]="searchTerm" (ionInput)="filterItem()"></ion-searchbar>
+
+<ion-card *ngFor="let item1 of items">
+
+  <!-- <div class = "card"> -->
+      <!-- <div class = "item item-avatar"> -->
+       
+      
+            <!-- <img [src]="item.image_url"> -->
+             
+        
+  <!-- <ion-card-header color="primary">{{item.name}}</ion-card-header>
+    
+     
+        <img [src]="item.image_url"><br>
+        
+              <h2>{{item.description}}</h2><br>
+           <p color="primary">  price:</p>
+           {{item.price}}&nbsp; &nbsp;<p color="primary"> cgst:</p>
+            {{item.cgst}}<br>
+             product Type: {{item.type}}<br>     -->
+            
+             
+             <ion-card>
+                
+               
+                <ion-card-title color="primary">{{item1.name}}</ion-card-title>
+               <ion-thumbnail  slot="start" class="page-products"> <img [src]="item1.image_url"></ion-thumbnail>
+                <ion-card-header>
+                  <ion-card-subtitle>{{item1.id}}</ion-card-subtitle>
+                  <ion-card-title>{{item1.name}}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    {{item1.description}}
+                </ion-card-content>
+              </ion-card>
+  </ion-card>
+
+
+        <!-- <ul>
+            <li *ngFor="let item of items">
+            
+              {{item.id}}<br>
+              {{item.name}}<br>
+              {{item.description}}<br>
+              {{item.price}}<br>
+            
+                {{item.cgst}}<br>
+               {{item.type}}<br>
+              
+              {{item.description}}<br>
+              {{item.barcode}}<br> 
+              {{item.weight}}<br> 
+              {{item.cess}}<br> 
+              {{item.category}}<br> 
+              {{item. uom}}<br> 
+            
+              {{item.brand}}<br> 
+              <ion-thumbnail slot="start">
+                <ion-img [src]="item.image_url"></ion-img>
+              </ion-thumbnail>
+
+
+       </li>
+            </ul> -->
+          
+<!-- 
+          public id: string,
+       public barcode: number,
+       public brand: string,
+       public category_id:number,
+       public code:number,
+       public currency: number,
+       
+       public description: string,
+       public image_url: string,
+       public name: string,
+       public weight: number,
+       public price: number,
+       public type: string,
+      public veg_non_veg: string,
+ public uom: string,
+ public cess: number,
+ public cgst: number,
+ public igst: number,
+ public sgst: number,
+ public category:string,-->

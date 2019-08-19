@@ -1,0 +1,40 @@
+<!--
+  Generated template for the ItemsearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>itemsearch</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <form class="form-inline">
+        <div class="form-group">
+          <input type="search"
+                 class="form-control"
+                 placeholder="Enter search string"
+                 [formControl]="searchField">
+        </div>
+      </form>
+      <div class="text-center">
+        <p class="lead" *ngIf="loading">Loading...</p>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item"
+            *ngFor="let track of results | async">
+          <img src="{{track.thumbnail}}">
+          <a target="_blank"
+             href="{{track.link}}">{{ track.track }}
+          </a>
+        </li>
+      </ul>
+    <!-- Name :<input type="text" (keyup)="onNameKeyUp($event)">
+    <button (click)="getProfile()">Get Profile</button>
+    <br>
+    <div *ngIf="found">
+      <span>{{name}}'s age is {{age}}</span>
+    </div> -->
+</ion-content>
