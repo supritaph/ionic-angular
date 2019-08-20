@@ -10,7 +10,66 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+
+    <input (keyup)="searchTerm$.next($event.target.value)" autofocus/>
+   
+<ul *ngIf="results">
+  <li *ngFor="let result of results">
+    
+      {{ result.name }}
+ 
+  </li>
+</ul>
+
+<!-- <table>
+    <thead>
+      <th sortColumn [sortKey]="'price'" [data]="data">price</th>
+      <th sortColumn [sortKey]="'name'" [data]="data">Name</th>
+      <th sortColumn [sortKey]="'weight'" [data]="data">weight</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let result of results">
+      <td>{{result.price}}</td>
+      <td>{{result.name}}</td>
+      <td>{{result.weight}}</td>
+    </tr>
+    </tbody>
+  </table> -->
+
+    <!-- <section class="filter-wrapper">
+        <div class="keyword-wrapper">
+            <input
+            (keyup)="searchTerm$.next($event.target.value)" autofocus/>
+         </div>
+       <ul class="filter-select" *ngFor="let result of results | slice:0:9">
+         <li class="filter-select-list"><img src="" alt="" width="50" height="50"><p class="artist-name"></p>
+       <span class="tags"></span>
+       <span>result.name</span>
+       </ul>
+       </section> -->
+    <!-- <input
+    (keyup)="searchTerm$.next($event.target.value)">
+
+<ul *ngIf="results">
+  <li *ngFor="let result of results | slice:0:9">
+    <a href="{{ result.latest }}" target="_blank">
+      {{ result.name }}
+    </a>
+  </li>
+</ul> -->
+
+
+    <!-- <input
+    (keyup)="searchTerm$.next($event.target.value)" autofocus/>
+
+<ul *ngIf="results">
+  <li *ngFor="let result of results | slice:0:9">
+    <a href="{{ result.latest }}" target="_blank">
+      {{ result.name }}
+    </a>
+  </li>
+</ul> -->
 
     <!-- <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
     <p>{{test}}</p>
@@ -20,9 +79,90 @@
         </ion-list-header>
         <ion-item *ngFor="let brands of item.brands; let j = index" (click)="selectedBrand(brands.id)">{{brands.name}}</ion-item>
     </ion-list> -->
- Name :<input type="text" (keyup)="onNameKeyUp($event)">
+ <!-- Name :<input type="text" (keyup)="onNameKeyUp($event)">
     <button (click)="getProfile()"> getItems</button>
     <div *ngIf="found">
         <span>{{name}}'s price is {{price}}</span>
-      </div> 
+      </div>  -->
+      <!-- <section class="filter-wrapper">
+          <div class="keyword-wrapper">
+              <input
+              (keyup)="searchTerm$.next($event.target.value)" autofocus/>
+         
+         <ul class="filter-select">
+           <li class="filter-select-list"><img src="" alt="" width="50" height="50"><p class="artist-name"></p>
+         <span class="tags"></span>
+         </ul> -->
+         <!-- </section> -->
+      
+         <!-- <section class="filter-wrapper">
+            <div class="keyword-wrapper">
+           <input type="text" id="keyword" (keyup)="searchTerm$.next($event.target.value)" placeholder="Search for items" autofocus/>
+             </div>
+           <ul class="filter-select">
+             <li class="filter-select-list"><img src="" alt="" width="50" height="50"><p class="artist-name"></p>
+           <span class="tags"></span>
+           </ul>
+           </section> -->
+      
+         <!-- <input
+    (keyup)="searchTerm$.next($event.target.value)">
+
+    <ion-card *ngFor="let result of results">
+        <ion-card>
+                
+               
+            <ion-card-title color="primary">{{result.name}}</ion-card-title> -->
+           <!-- <ion-thumbnail  slot="start" class="page-products"> <img [src]="item1.image_url"></ion-thumbnail> -->
+            <!-- <ion-card-header>
+              <ion-card-subtitle>{{result.id}}</ion-card-subtitle>
+              <ion-card-title>{{result.name}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                {{result.description}}
+            </ion-card-content>
+          </ion-card>
+</ion-card> -->
+
+<!-- <ul *ngIf="results">
+  <li *ngFor="let result of results | slice:0:9">
+    <a href="{{ result.latest }}" target="_blank">
+      {{ result.name }}
+    </a>
+  </li>
+</ul> -->
+    
+    <!-- <ul *ngIf="results">
+      <li *ngFor="let result of results | slice:0:9">
+        <a href="{{ result.latest }}" target="_blank">
+          {{ result.name }}
+        </a>
+      </li>
+    </ul> -->
+
+<!-- <ul *ngIf="results"> -->
+  <!-- <div *ngFor="let result of results">
+    
+      {{ result.id }}
+    </div> -->
+  <!-- </li> -->
+<!-- </ul> -->
+<!-- 
+<div class="text-center">
+  <p class="lead" *ngIf="loading">Loading...</p>
+</div>
+
+<ul class="list-items">
+  <li class="list-group-item"
+      *ngFor="let result of results | async">
+    <img src="{{result.thumbnail}}">
+    <a target="_blank"
+       href="{{result.link}}">{{ result.result }}
+       
+    </a>
+  </li>
+</ul> -->
+
+
+
 </ion-content>
