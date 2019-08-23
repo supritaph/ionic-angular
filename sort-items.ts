@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductProvider } from '../../providers/product/product';
 import { place } from '../../app/place.model';
 import { not } from '@angular/compiler/src/output/output_ast';
+import { range } from 'rxjs/observable/range';
+import { min, max } from 'rxjs/operators';
 
 
 /**
@@ -26,15 +28,53 @@ export class SortItemsPage {
   price: number;
   applyFilterPrice: any;
   input:place[];
-
+  output = [];
+  radios=range;
+   val:string;
+   radioVal:number;
+  //  isChecked = false;
   range = [];
+  selectedItem: any='';
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private productService: ProductProvider, ) {
-      this.maximumPrice=50, this.minimumPrice=10;
+      this.maximumPrice=100, this.minimumPrice=20;
       this.input = [];
     }
+    checked(event: any, task: any){
+      
+      const isChecked = event.checked;
   
+      // Here you can include your custom logic
+      // to handle what happens when the checkbox
+      // is checked or unchecked :)
+  
+      if(isChecked) {
+        console.log(`The task ${task} is checked!`)
+         
+        if(range>=this.output.price){
+        this.output.push(task);
+        }
+        console.log(this.output)
+        // ...
+        // ...
+      } else {
+        console.log(`The task ${task} is unchecked!`)
+  
+        // ...
+        // ...
+      }
+    }
 
+    // radioGroupChange(event:any)
+    // {
+    //   this.isChecked = !this.isChecked;
+    //     console.log(event);
+    //     // this.selectedItem= event.target.value;
+        
+    // }  
+
+    
   ionViewDidLoad() {
     console.log('ionViewDidLoad SortItemsPage');
   }
@@ -54,32 +94,87 @@ export class SortItemsPage {
 
 // })
 // //   }
-var abcd = [], output = [], l = this.items.length;
+var abcd = [], l = this.items.length;
 // var range = [];
 for( var i=0; i<l; i++) {
     if( abcd[this.items[i].price]) continue;
     abcd[this.items[i].price] = true;
-    output.push(this.items[i].price);
+    this.output.push(this.items[i].price);
 
                 }
                 //console.log("unique prices from array")
                 //console.log("items are",output);
                 //console.log("max and min value from that unique prices")
-                const max = output.reduce((a, b) => Math.max(a, b));
+                const max = this.output.reduce((a, b) => Math.max(a, b));
                 ///console.log("max",max);
-                const min = output.reduce((a, b) => Math.min(a, b));
+                const min = this.output.reduce((a, b) => Math.min(a, b));
                 //console.log("min", min);
                 console.log("displaying index and iteration to bring c values to find range to display")
                 var c=(min+max)/10;
                 for( i=min; i<max; i=i+c)
                 {
-                  console.log(Math.round(i) +":" +Math.round((i+c)));
+                  console.log(Math.round(i) +":" +Math.round((i+c))+ ":" +c);
                   this.range.push(Math.round(i) +":" +Math.round((i+c)))
+                
                 }
+                
 
-              });
-    
+              })
             }
+
+            onNext (eve)
+            {
+              // for(var i=0;i<range.length; i++)
+              // {
+              //   this.input.push(this.range.price);
+              // }
+              console.log(this.range)
+//               var result = [];
+//               var i;
+//     for ( i = this.range; i <= this.range; i++) {
+//         result.push(i);
+//     }
+//     return result;
+// };
+            }
+
+            
+          }
+              // if(fieldName===checked)
+              // {
+              //  console.log(range)  
+              // }
+              // if(this.items.price>=this.minimumPrice && this.items.price<=this.maximumPrice)
+              //                   {
+              //                     //  console.log("matched are",this.items[i]);
+              //                      this.output.push(this.items);
+              //                     //  console.log(this.input)
+              //                     //return this.items[i].price;
+                                  
+              //                   }
+              //                   console.log("items are",this.output);
+                              
+              //                 console.log("items are",this.output);
+                            
+                            
+              //                 }
+            // radioGroupChange(evt){
+            //   // var target = evt.target;
+            //   // if (target.checked) {
+               
+               
+            //   // } else {
+            //   //   alert("unchecked")
+            //   // }
+            // }
+        
+          
+        
+
+
+
+              
+            
 
             
 
@@ -219,4 +314,3 @@ for( var i=0; i<l; i++) {
   
 
  
-}

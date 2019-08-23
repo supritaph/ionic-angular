@@ -11,42 +11,47 @@
 </ion-header>
 
 <ion-content padding> 
-    <!-- <ion-list radio-group name="fieldName">
-        <ion-radio-group (ionChange)="radioGroupChange($event)">
-  
-        <ion-item>
-        <ion-label>price from rs.10 to 50</ion-label>
-        <ion-radio value="price1"></ion-radio>
-      </ion-item>
-
-      <ion-item>
-          <ion-label>price from rs.50 to 100</ion-label>
-          <ion-radio value="price2"></ion-radio>
-        </ion-item>
     
+    <!-- <ion-item>
+        <ion-label>{{question.optionA}}</ion-label>
+        <ion-radio  value="1" (ionSelect)="mcqAnswer(i,1)"></ion-radio>
+      </ion-item> -->
+    
+      <ion-list>
+          <ion-item *ngFor="let task of range">
+            <ion-label>{{ task }}</ion-label>
+            <ion-checkbox (ionChange)="checked($event, task)"></ion-checkbox>
+          </ion-item>
+        </ion-list>
       
-      
-    </ion-radio-group> -->
-    {{range}}
-    <div *ngFor="let data of range">
+          <!-- <ion-radio-group name="sortfilter">
+    <ion-list *ngFor="let data of range" let i="index">
+        <ion-radio value="{{data}}" name="data"  (ionSelect)="radioGroupChange($event, 1)"></ion-radio>
+      <i>{{data}}</i>
+    </ion-list>
+</ion-radio-group> -->
+
+<!-- <h5>{{radioSelectedString}}</h5> -->
+
+<!-- <p>you selected:<span>{{selectedItem}}</span></p>   -->
+ </ion-content>
+    
+      <!-- <div *ngFor="let data of range">
+        <ion-list radio-group name="fieldName">
         <ion-radio-group (ionChange)="radioGroupChange($event)">
   
             <ion-item>
-            <ion-label>{{data}}</ion-label>
-            <ion-radio value="price1"></ion-radio>
+            <ion-label>{{data}} </ion-label>
+            
+            <ion-radio value="data" [checked]="false/true"></ion-radio>
           </ion-item>
     
         </ion-radio-group>
-      </div>
+    </ion-list>  </div>  -->
 
-    <!-- <div *ngFor="let item of items">
-      
-        {{item.name}}
-        {{item.price}}
-      </div>
-        -->
+  <!-- <p>you selected:<span>{{selectedItem}}</span></p> 
     
-  <button ion-button (click)=onNext()>applynow</button>
+  <button ion-button (click)=onNext()>applynow</button>  -->
   <!-- <ion-card>
     <ion-list>
         <ion-radio-group>
@@ -91,7 +96,7 @@
       </ion-row> -->
       
     <!-- </ion-card>  -->
-    <!-- <ion-list>
+    <!-- <ion-list
         <ion-radio-group>
           <ion-list-header>
             <ion-label>Fruit</ion-label>
@@ -114,3 +119,4 @@
         </ion-list> -->
 
 
+<!-- </ion-content> -->
