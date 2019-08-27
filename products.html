@@ -1,15 +1,21 @@
 <ion-header>
     <ion-toolbar>
+       
+       
+
         <ion-buttons slot="start" swipeGesture="true">
             <button ion-button icon-only menuToggle>
-              <ion-icon name="menu">
+              <ion-icon name="menu">    
               </ion-icon>
             </button>
           </ion-buttons>
-        <ion-title>products</ion-title>
+        
+          <ion-title>products</ion-title>
+        
+        <!-- <button ion-button slot="end" (click)="sort()">sort</button> -->
     </ion-toolbar>
+    <!-- <button ion-button slot=end>sort</button> -->
 </ion-header>
-
 <!-- <ion-header> -->
     <!-- <ion-navbar> -->
         <!-- <ion-buttons slot="start" swipeGesture="true">
@@ -29,6 +35,7 @@
 <!-- </ion-header> -->
 
 <ion-content padding>
+   
   <!-- <ion-card *ngFor="let item of items">
     <ion-card-header>
       <ion-card-subtitle>{{item.id}}</ion-card-subtitle>
@@ -42,42 +49,100 @@
   <!-- <ion-card ng-repeat="item of items"> -->
       <!-- <ion-searchbar [(ngModel)]="searchTerm" 
       (ionInput)="setFilteredLocations($event)"></ion-searchbar> -->
+      <!-- <ion-item>
+          <ion-label>Month</ion-label>
+          <ion-select [(ngModel)]="filtermonthwise" interface="action-sheet" (ionChange)="sort()">
+            <ion-option value="1" (click)="sort()">sort by price</ion-option>
+            <ion-option value="2"  (click)="brandname()">filter by brand</ion-option>
+            
+            (ionChange)="sort()" -->
+    
+          <!-- </ion-select>
+        </ion-item> -->
+        <!-- <ion-grid>
+          <ion-row>
+              <ion-col col-3>
+                  <ion-item>
+                      <ion-label stacked>Filter</ion-label>
+                      <ion-select interface="popover" (ionChange)="location = this.value;">
+                          <ion-option value="/home">filter by price</ion-option>
+                          <ion-option value="/login">filter by brand</ion-option>
+                      </ion-select>
+                  </ion-item>
+                  </ion-col>
+                  </ion-row>
+                  </ion-grid> -->
+                  <!-- <select (ionChange)="location = this.value;">
+                    <option value="/">Finished</option>
+                    <option value="/loginpage">Break</option>
+                    <option value="/home">Issues</option>
+    </select>
+     -->
+     <!-- <ion-item>
+      <ion-label floating>sort ProductsList</ion-label>
+       <ion-select name="example">
+          <ion-option value="sort"  item-left (ionSelect)="sort()" selected>filter by price</ion-option>
+          <ion-option value="sort"  item-left (ionSelect)="brandname()">filter by brand</ion-option>
+          <ion-label>sort</ion-label>
+       </ion-select>
+    </ion-item> -->
+    <ion-item>
+      <ion-label floating>sort ProductsList</ion-label>
+       <ion-select name="example" [ngModelOptions]="{standalone: true}">
+          <ion-option [value]="example"  item-left (ionSelect)="sort()">price</ion-option>
+          <ion-option [value]="example"  item-left (ionSelect)="brandname()">brand</ion-option>
+          <ion-option [value]="example"  item-left (ionSelect)="weight()">by weight</ion-option>
+          <!-- <ion-label>{{Example}}</ion-label> -->
+       </ion-select>
+    </ion-item>
+                  <!-- <div class="list">
+                    <label class="sitem item-input item-select">
+                        <select>
+                            <option  (ionChange)="brandname()" >Default</option>
+                            <option >Green</option>
+                            <option>Red</option>
+                        </select>
+                    </label>
+                </div> -->
+                    
+
+      <!-- <button ion-button slot=end (click)="sort()">sort</button>-->
+      <!-- <button ion-button slot=start (click)="brandname()">filter by brand</button>  -->
 
       <!-- <ion-searchbar [(ngModel)]="searchCountryString" (input)="searchCountry($event)" placeholder="Search"></ion-searchbar> -->
 <ion-searchbar placeholder="FilterItem" [(ngModel)]="searchTerm" (ionInput)="filterItem()"></ion-searchbar>
-
-<ion-card *ngFor="let item1 of items">
-
-  <!-- <div class = "card"> -->
-      <!-- <div class = "item item-avatar"> -->
-       
-      
-            <!-- <img [src]="item.image_url"> -->
-             
-        
-  <!-- <ion-card-header color="primary">{{item.name}}</ion-card-header>
+<!-- <li *ngFor="let item of items | orderBy : ['-name', 'price']">
+  {{item.name}} {{item.weight}}, {{item.price}}</li> -->
+<!-- <ion-card *ngFor="let item1 of items"> -->
+    <!-- <div ng-controller="searchTerm">
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>price</th>
+            <th>weight</th>
+          </tr>
+          <tr ng-repeat="item in items | orderBy:'price'">
+            <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.weight}}</td>
+          </tr>
+        </table>
+      </div> -->
     
-     
-        <img [src]="item.image_url"><br>
-        
-              <h2>{{item.description}}</h2><br>
-           <p color="primary">  price:</p>
-           {{item.price}}&nbsp; &nbsp;<p color="primary"> cgst:</p>
-            {{item.cgst}}<br>
-             product Type: {{item.type}}<br>     -->
-            
+            <!-- items -->
              
+             <ion-card *ngFor="let item1 of items">
              <ion-card>
-                
-               
                 <ion-card-title color="primary">{{item1.name}}</ion-card-title>
-               <ion-thumbnail  slot="start" class="page-products"> <img [src]="item1.image_url"></ion-thumbnail>
+               <ion-thumbnail  slot="start"> <img height=400 px [src]="item1.image_url"></ion-thumbnail>
+              
                 <ion-card-header>
                   <ion-card-subtitle>{{item1.id}}</ion-card-subtitle>
                   <ion-card-title>{{item1.name}}</ion-card-title>
                 </ion-card-header>
                 <ion-card-content>
-                    {{item1.description}}
+                    {{item1.description}}<br>
+                    <h5><b>Rs.{{item1.price}}</b></h5>
                 </ion-card-content>
               </ion-card>
   </ion-card>
@@ -86,7 +151,7 @@
         <!-- <ul>
             <li *ngFor="let item of items">
             
-              {{item.id}}<br>
+              {{item.id}}<br>s
               {{item.name}}<br>
               {{item.description}}<br>
               {{item.price}}<br>

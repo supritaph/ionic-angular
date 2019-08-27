@@ -36,6 +36,7 @@ export class FilterItemPage {
       });
       
   }
+ 
 }
   // id:any;
 // id:string = '';

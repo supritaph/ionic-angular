@@ -23,7 +23,13 @@
             <ion-checkbox (ionChange)="checked($event, task)"></ion-checkbox>
           </ion-item>
         </ion-list>
-      
+
+        <button ion-button type="submit" expand="full" color="primary" (click)="onSubmit()">applynow</button>
+        <!-- <div *ngFor="let items22 of newArray2">
+          {{items22.name}}
+          {{items22.price}}
+        </div> -->
+        
           <!-- <ion-radio-group name="sortfilter">
     <ion-list *ngFor="let data of range" let i="index">
         <ion-radio value="{{data}}" name="data"  (ionSelect)="radioGroupChange($event, 1)"></ion-radio>

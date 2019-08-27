@@ -9,19 +9,17 @@
     <ion-title>filterItem</ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content>
-
     <input (keyup)="searchTerm$.next($event.target.value)" autofocus/>
-   
 <ul *ngIf="results">
   <li *ngFor="let result of results">
-    
-      {{ result.name }}
- 
+    <ion-card>
+     <h6> Name: {{result.name }}</h6><br>
+     <!-- <ion-thumbnail  slot="start"> <img height=400 px [src]="result.image_url"></ion-thumbnail> -->
+     <h6><b>Rs.{{result.price}}</b></h6> <br><br>
+    </ion-card>
   </li>
 </ul>
-
 <!-- <table>
     <thead>
       <th sortColumn [sortKey]="'price'" [data]="data">price</th>

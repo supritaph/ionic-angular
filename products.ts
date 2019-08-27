@@ -1,8 +1,11 @@
-import { Component, ComponentFactoryResolver } from '@angular/core';
-import { IonicPage, Item } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { IonicPage, NavController } from 'ionic-angular';
 
 import { place } from '../../app/place.model';
 import { ProductProvider } from '../../providers/product/product';
+import { SortItemsPage } from '../sort-items/sort-items';
+import { BrandDetailsPage } from '../brand-details/brand-details';
+import { WeightPage } from '../weight/weight';
 
 
 /**
@@ -36,34 +39,86 @@ export class ProductsPage {
 
   constructor(
     private productService: ProductProvider,
+    public navCtrl: NavController
   
    
-  ) {}
+  ) {
+    this.items = [];
+  }
+
 
   ngOnInit() {
     console.log("init function start");
-    this.productSub = this.productService.fetchPlaces().subscribe(productel => {
-      console.log("init function subscribe");
-     // console.log(productel);
-      this.items = productel;
-      console.log(this.items);
-      
-    });
+    
     // console.log(""+this.filterItem(this.items,this.namekey));
   }
 
   ionViewWillEnter() {
-
-    this.productService.fetchPlaces().subscribe(() => { 
+    console.log("viewEnter");
+    this.productSub = this.productService.fetchPlaces().subscribe(productel => {  /*productsub holds a service function of elemments presents */
+      console.log("init function subscribe");
+     // console.log(productel);
+     this.items = [];
+     console.log(this.productService.minPrice);
+     console.log(this.productService.maxPrice);
+     console.log(productel.length);
+     for(var i=0;i<productel.length;i++){
+      if (productel[i].price >= this.productService.minPrice && productel[i].price <= this.productService.maxPrice ) {
+        this.items.push(productel[i]);
+       
+      }
+     }
+     
+     // this.items = productel;/*hence items refer to elements in place[] */
+      
+      console.log(this.items);
+      //service file - selected range - ex: 30 to 45
+      //search for produucts within 30 to 45 and display
+      
     });
     
   }
+//   send(){
+//     this.items = this.items.sort((n1,n2) => {
+//     if (n1 < n2) {
+//         return 1;
+//     }
 
-  filterItem(){
+//     if (n1 > n2) {
+//         return -1;
+//     }
+
+//     return 0;
+// });
+//   }
+sort(){
+  console.log("hi");
+  this.navCtrl.push(SortItemsPage)
+  
+}
+brandname()
+{
+  this.navCtrl.push(BrandDetailsPage);
+}
+weight(){
+  this.navCtrl.push(WeightPage);
+}
+
+  filterItem(){  /*this fun is to search items in an displayed array list */
        
     this.items = this.items.filter(item =>  item.name.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1)
-  console.log(this.items);
+  console.log(this.items);   /*tolowercase fun makes a input in to all low case and returns -1 if not match */
 }/*item is array that holds data and filters if name appears and search term holds whatever has been filtered  */
+// sort(array:any[],property:string,isNumber:boolean){
+//   if(isNumber){
+//       return array.sort((item1,item2)=> {
+//           return (item1[property] > item2[property]) ? 1 : -1;});
+//   }else{
+//       return array.sort((item1,item2)=> {
+//           return (item1[property].toLowerCase() > item2[property].toLowerCase()) ? 1 : -1;});
+//   }
+// }
+
 }
 //   filterItem() {
 //     for (var i = 0,len = this.items.length; i < len; i++) {
